@@ -1,3 +1,6 @@
+let sorrentinosPrice = 400;
+let fideosPrice = 300;
+let panzottisPrice = 400;
 let opcion = mostrarMenu();
 let dineroIngresado = 0;
 
@@ -14,9 +17,9 @@ let dineroIngresado = 0;
     function mostrarMenu()
     {
        return prompt(`Seleccione una opcion: 
-                     1. FIDEOS (300 ARS)
-                     2. SORRENTINOS (400 ARS)
-                     3. PANZOTIS (400ARS)
+                     1. FIDEOS (${fideosPrice}ARS)
+                     2. SORRENTINOS (${sorrentinosPrice}ARS)
+                     3. PANZOTIS (${panzottisPrice}ARS)
                      4. FIN`);
       
     }
@@ -27,17 +30,17 @@ let dineroIngresado = 0;
        {
          case "1":
          {
-            pedirDinero(2)
+            pedirDinero(fideosPrice)
             break;
          }
          case "2":
          {
-            pedirDinero(3)
+            pedirDinero(sorrentinosPrice)
             break;
          }
          case "3":
          {
-            pedirDinero(4)
+            pedirDinero(panzottisPrice)
             break;
          }
          default:
@@ -50,13 +53,13 @@ let dineroIngresado = 0;
 
     }
        
-    function pedirDinero(numMin)
+    function pedirDinero(priceProduct)
     {
-            while(dineroIngresado<numMin)
+            while(dineroIngresado<priceProduct)
             {
                let dinero = Number(prompt("¿Con cuanto va a pagar?"));
                
-               if(dinero<200)
+               if(dinero<priceProduct)
                {
                   alert("monto invalido")
                }
@@ -65,7 +68,7 @@ let dineroIngresado = 0;
                }
             }
             
-               let cambio = dineroIngresado - 300;
+               let cambio = dineroIngresado - priceProduct;
                alert("Su cambio es: " + cambio);
                alert("Gracias");
             
